@@ -14,7 +14,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-bootstrap-confirm": [
+        "dist/ngx-bootstrap-confirm/ngx-bootstrap-confirm",
+        "dist/ngx-bootstrap-confirm"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

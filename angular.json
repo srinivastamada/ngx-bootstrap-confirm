@@ -2,5 +2,46 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "ngx-bootstrap-confirm": {
+      "projectType": "library",
+      "root": "projects/ngx-bootstrap-confirm",
+      "sourceRoot": "projects/ngx-bootstrap-confirm/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-bootstrap-confirm/tsconfig.lib.json",
+            "project": "projects/ngx-bootstrap-confirm/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-bootstrap-confirm/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-bootstrap-confirm/src/test.ts",
+            "tsConfig": "projects/ngx-bootstrap-confirm/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-bootstrap-confirm/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-bootstrap-confirm/tsconfig.lib.json",
+              "projects/ngx-bootstrap-confirm/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "ngx-bootstrap-confirm"
 }
