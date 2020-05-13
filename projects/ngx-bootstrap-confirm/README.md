@@ -1,24 +1,82 @@
 # NgxBootstrapConfirm
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
 
-## Code scaffolding
+# Installation
+```
+npm install --save ngx-bootstrap ngx-bootstrap-confirm
+```
 
-Run `ng generate component component-name --project ngx-bootstrap-confirm` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-bootstrap-confirm`.
-> Note: Don't forget to add `--project ngx-bootstrap-confirm` or else it will be added to the default project in your `angular.json` file. 
+or if you use yarn:
 
-## Build
+``` 
+yarn add ngx-bootstrap ngx-bootstrap-confirm
+```
 
-Run `ng build ngx-bootstrap-confirm` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Usage
+Import NgxBadwordsModule into your app's modules:
+``` typescript
+import { NgxBootstrapConfirmModule } from 'ngx-bootstrap-confirm';
+ 
+@NgModule({
+  imports: [
+    NgxBootstrapConfirmModule
+  ]
+})
+```
 
-## Publishing
+Import NgxBadwordsService into your app's components:
 
-After building your library with `ng build ngx-bootstrap-confirm`, go to the dist folder `cd dist/ngx-bootstrap-confirm` and run `npm publish`.
+``` typescript
+import { NgxBootstrapConfirmService } from 'ngx-bootstrap-confirm'
 
-## Running unit tests
+export class AppComponent implements OnInit {
+  
+  constructor(private ngxBootstrapConfirmService: NgxBootstrapConfirmService){
+  }
 
-Run `ng test ngx-bootstrap-confirm` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  ngOnInit(){
+    this.NgxBootstrapConfirmService.then((res:boolean)=>{
+     if(res){
+       console.log("Okay");
+     } else {
+         console.log("Cancel")
+     }
+    });
+}
+```
 
-## Further help
+# SCSS
+``` SCSS
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+.modal-dialog {
+  width: 360px !important;
+  margin-top: 120px;
+  margin: 30px auto;
+  .modal-content {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  .confirm {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    min-height: 150px;
+    .content {
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff !important;
+      font-weight: 700;
+    }
+    .buttons {
+      padding: 10px 15px;
+      float: right;
+      button {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+```
+
+
+# License
+The MIT License (MIT)
