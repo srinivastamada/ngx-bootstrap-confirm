@@ -37,23 +37,25 @@ import { NgxBootstrapConfirmService } from 'ngx-bootstrap-confirm';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'testingproject';
   constructor(private ngxBootstrapConfirmService: NgxBootstrapConfirmService){
   }
 
-  action(){
-    let message = 'Sure you want to delete this update?';
-    this.ngxBootstrapConfirmService.confirm(message, 'Okay', 'Cancel').then((res:boolean)=>{
-      console.log(res);
-       if(res){
-         console.log('Okay');
-       } else {
-         console.log('Cancel')
-       }
+  action() {
+    let options ={
+      title: 'Sure you want to delete this comment?',
+      confirmLabel: 'Okay',
+      declineLabel: 'Cancel'
+    }
+    this.ngxBootstrapConfirmService.confirm(options).then((res: boolean) => {
+      if (res) {
+        console.log('Okay');
+      } else {
+        console.log('Cancel');
+      }
     });
   }
 }
-
+}
 ```
 
 Remove words from the blacklist
