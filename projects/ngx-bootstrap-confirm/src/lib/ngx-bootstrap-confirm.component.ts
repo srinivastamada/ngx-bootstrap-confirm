@@ -8,8 +8,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   <div class="confirm modal-body">
       <div class="content" [innerHTML]="title"></div>
       <div class="buttons">
-          <button type="button" class="btn btn-primary" (click)="confirm()" [innerHTML]="confirmLabel">Okay</button>
-          <button type="button" class="btn btn-secondry" (click)="decline()" [innerHTML]="declineLabel">Cancel</button>
+          <button type="button" class="btn btn-success" (click)="confirm()" [innerHTML]="confirmLabel">Okay</button>
+          <button type="button" class="btn btn-danger" (click)="decline()" [innerHTML]="declineLabel">Cancel</button>
       </div>
   </div>
   `

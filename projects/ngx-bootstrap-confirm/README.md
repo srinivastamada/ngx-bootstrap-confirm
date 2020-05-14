@@ -1,6 +1,10 @@
-# NgxBadwords - 2.0.0
+# NgxBootstrapConfirm
 
 bad-words provider for Angular
+
+# Demo
+https://ngxconfirm.9lessons.info/
+
 
 # Installation
 ```
