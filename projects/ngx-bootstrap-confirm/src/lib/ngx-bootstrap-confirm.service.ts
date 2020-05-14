@@ -6,8 +6,8 @@ export class NgxBootstrapConfirmService {
   modalRef: BsModalRef;
   constructor(private modalService: BsModalService) {}
 
-  confirm(title: any) {
-    new Promise((resolve, reject) => {
+  confirm(title: any): Promise<any> {
+    return new Promise((resolve, reject) => {
       this.modalRef = this.modalService.show(NgxBootstrapConfirmComponent, {
         initialState: {
           prompt: title,

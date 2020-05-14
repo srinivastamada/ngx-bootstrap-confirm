@@ -1,24 +1,92 @@
-# NgxBootstrapConfirm
+# NgxBadwords - 2.0.0
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+bad-words provider for Angular
 
-## Code scaffolding
+# Installation
+```
+npm install --save ngx-bootstrap ngx-bootstrap-confirm
+```
 
-Run `ng generate component component-name --project ngx-bootstrap-confirm` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-bootstrap-confirm`.
-> Note: Don't forget to add `--project ngx-bootstrap-confirm` or else it will be added to the default project in your `angular.json` file. 
+or if you use yarn:
 
-## Build
+``` typescript
+yarn add ngx-bootstrap ngx-bootstrap-confirm
+```
 
-Run `ng build ngx-bootstrap-confirm` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Usage
+Import NgxBootstrapConfirmModule into your app's modules:
+``` typescript
+import { NgxBootstrapConfirmModule } from 'ngx-bootstrap-confirm';
+ 
+@NgModule({
+  imports: [
+    NgxBootstrapConfirmModule
+  ]
+})
+```
 
-## Publishing
+Import NgxBootstrapConfirmService into your app's components:
 
-After building your library with `ng build ngx-bootstrap-confirm`, go to the dist folder `cd dist/ngx-bootstrap-confirm` and run `npm publish`.
+``` typescript
+import { Component } from '@angular/core';
+import { NgxBootstrapConfirmService } from 'ngx-bootstrap-confirm';
 
-## Running unit tests
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'testingproject';
+  constructor(private ngxBootstrapConfirmService: NgxBootstrapConfirmService){
+  }
 
-Run `ng test ngx-bootstrap-confirm` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  action(){
+    let message = 'Sure you want to delete this update?';
+    this.ngxBootstrapConfirmService.confirm(message, 'Okay', 'Cancel').then((res:boolean)=>{
+      console.log(res);
+       if(res){
+         console.log('Okay');
+       } else {
+         console.log('Cancel')
+       }
+    });
+  }
+}
+```
 
-## Further help
+Remove words from the blacklist
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+``` CSS
+.modal-dialog {
+  width: 360px !important;
+  margin-top: 120px;
+  margin: 30px auto;
+  .modal-content {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  .confirm {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    min-height: 150px;
+    .content {
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff !important;
+      font-weight: 700;
+    }
+    .buttons {
+      padding: 10px 15px;
+      float: right;
+      button {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+```
+
+# License
+The MIT License (MIT)
+
+srinivas@9lessons.info

@@ -1,27 +1,93 @@
-# NgxBootstrapConfirm
+# NgxBadwords
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+bad-words provider for Angular
 
-## Development server
+# Installation
+```
+npm install --save ngx-bootstrap ngx-bootstrap-confirm
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+or if you use yarn:
 
-## Code scaffolding
+``` typescript
+yarn add ngx-bootstrap ngx-bootstrap-confirm
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Usage
+Import NgxBootstrapConfirmModule into your app's modules:
+``` typescript
+import { NgxBootstrapConfirmModule } from 'ngx-bootstrap-confirm';
+ 
+@NgModule({
+  imports: [
+    NgxBootstrapConfirmModule
+  ]
+})
+```
 
-## Build
+Import NgxBootstrapConfirmService into your app's components:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+``` typescript
+import { Component } from '@angular/core';
+import { NgxBootstrapConfirmService } from 'ngx-bootstrap-confirm';
 
-## Running unit tests
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'testingproject';
+  constructor(private ngxBootstrapConfirmService: NgxBootstrapConfirmService){
+  }
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  action(){
+    let message = 'Sure you want to delete this update?';
+    this.ngxBootstrapConfirmService.confirm(message, 'Okay', 'Cancel').then((res:boolean)=>{
+      console.log(res);
+       if(res){
+         console.log('Okay');
+       } else {
+         console.log('Cancel')
+       }
+    });
+  }
+}
 
-## Running end-to-end tests
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Remove words from the blacklist
 
-## Further help
+``` CSS
+.modal-dialog {
+  width: 360px !important;
+  margin-top: 120px;
+  margin: 30px auto;
+  .modal-content {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  .confirm {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    min-height: 150px;
+    .content {
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff !important;
+      font-weight: 700;
+    }
+    .buttons {
+      padding: 10px 15px;
+      float: right;
+      button {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# License
+The MIT License (MIT)
+
+srinivas@9lessons.info
