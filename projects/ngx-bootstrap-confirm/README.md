@@ -1,6 +1,6 @@
 # NgxBootstrapConfirm
 
-bad-words provider for Angular
+Bootstrap confirm provider for Angular
 
 # Demo
 https://ngxconfirm.9lessons.info/
