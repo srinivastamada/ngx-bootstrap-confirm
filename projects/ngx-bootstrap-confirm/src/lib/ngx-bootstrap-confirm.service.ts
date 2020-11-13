@@ -8,15 +8,12 @@ export class NgxBootstrapConfirmService {
 
   confirm(options: any): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.modalRef = this.modalService.show(NgxBootstrapConfirmComponent, {
-        initialState: {
-          title: options.title,
-          confirmLabel: options.confirmLabel,
-          declineLabel: options.declineLabel,
-          callback: (result: boolean) => {
-            resolve(result);
-          },
-        },
+      this.modalRef = this.modalService.show(NgxBootstrapConfirmComponent);
+      this.modalRef.content.title = options.title;
+      this.modalRef.content.confirmLabel = options.confirmLabel;
+      this.modalRef.content.declineLabel = options.declineLabel;
+      this.modalRef.content.onClose.subscribe((result: boolean) => {
+        resolve(result);
       });
     });
   }

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'lib-ngx-bootstrap-confirm',
@@ -15,23 +15,24 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   `
 })
 
-export class NgxBootstrapConfirmComponent {
+export class NgxBootstrapConfirmComponent implements OnInit {
+  public onClose: Subject<boolean>;
   title: string;
   confirmLabel: string;
   declineLabel: string;
   constructor(public bsModalRef: BsModalRef) {}
 
+  public ngOnInit(): void {
+    this.onClose = new Subject();
+  }
+
   confirm() {
-    if (this.bsModalRef.content.callback != null) {
-      this.bsModalRef.content.callback(true);
-      this.bsModalRef.hide();
-    }
+    this.onClose.next(true);
+    this.bsModalRef.hide();
   }
 
   decline() {
-    if (this.bsModalRef.content.callback != null) {
-      this.bsModalRef.content.callback(false);
-      this.bsModalRef.hide();
-    }
+    this.onClose.next(false);
+    this.bsModalRef.hide();
   }
 }
