@@ -1,6 +1,6 @@
 # NgxBootstrapConfirm
 
-Bootstrap confirm provider for Angular
+Bootstrap confirm provider for Angular 11+
 
 # Demo
 https://ngxconfirm.9lessons.info/
@@ -62,7 +62,13 @@ export class AppComponent {
 }
 ```
 
-Remove words from the blacklist
+#app.component.html
+``` html
+<button (click)="action()">Action</button>
+<router-outlet></router-outlet>
+```
+
+Copy in styles.scss
 
 ``` CSS
 .modal-dialog {
