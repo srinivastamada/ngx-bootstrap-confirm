@@ -1,9 +1,15 @@
 {
   "name": "ngx-bootstrap-confirm",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "dependencies": {
     "tslib": "^2.0.0"
   },
+  "author": {
+    "email": "srinivas.tamada@gmail.com",
+    "name": "Srinivas Tamada",
+    "url": "https://9lessons.info"
+  },
+  "keywords": ["bootstrap","confirmation", "alert","confirm", "modal", "popup", "angular", "angular-module"],
   "peerDependencies": {
     "@angular/common": "~11.0.0",
     "@angular/core": "~11.0.0",
